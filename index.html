@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bookshelf App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookshelf App - Nouval</title>
+    
+    <link rel="stylesheet" href="style.css">
 
-    <!-- Impor script kamu di sini -->
-    <!-- Lampirkan `defer` jika pemanggilan dilakukan dalam <head> -->
-    <script defer src="main.js"></script>
-  </head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
   <body>
     <header>
       <h1>Bookshelf App</h1>
@@ -47,8 +49,10 @@
       <section>
         <h2>Cari Buku</h2>
         <form id="searchBook" data-testid="searchBookForm">
-          <label for="searchBookTitle">Judul</label>
-          <input id="searchBookTitle" type="text" data-testid="searchBookFormTitleInput" />
+          <div>
+             <label for="searchBookTitle">Judul</label>
+             <input id="searchBookTitle" type="text" data-testid="searchBookFormTitleInput" />
+          </div>
           <button id="searchSubmit" type="submit" data-testid="searchBookFormSubmitButton">
             Cari
           </button>
@@ -57,45 +61,43 @@
 
       <section>
         <h2>Belum selesai dibaca</h2>
-
         <div id="incompleteBookList" data-testid="incompleteBookList">
-          <!-- 
-            Ini adalah struktur HTML untuk masing-masing buku.
-            Pastikan susunan elemen beserta atribut data-testid menyesuaikan seperti contoh ini.
-          -->
-          <div data-bookid="123123123" data-testid="bookItem">
-            <h3 data-testid="bookItemTitle">Judul Buku 1</h3>
-            <p data-testid="bookItemAuthor">Penulis: Penulis Buku 1</p>
-            <p data-testid="bookItemYear">Tahun: 2030</p>
-            <div>
-              <button data-testid="bookItemIsCompleteButton">Selesai dibaca</button>
-              <button data-testid="bookItemDeleteButton">Hapus Buku</button>
-              <button data-testid="bookItemEditButton">Edit Buku</button>
             </div>
-          </div>
-        </div>
       </section>
 
       <section>
         <h2>Selesai dibaca</h2>
-
         <div id="completeBookList" data-testid="completeBookList">
-          <!-- 
-            Ini adalah struktur HTML untuk masing-masing buku.
-            Pastikan susunan elemen beserta atribut data-testid menyesuaikan seperti contoh ini.
-          -->
-          <div data-bookid="456456456" data-testid="bookItem">
-            <h3 data-testid="bookItemTitle">Judul Buku 2</h3>
-            <p data-testid="bookItemAuthor">Penulis: Penulis Buku 2</p>
-            <p data-testid="bookItemYear">Tahun: 2030</p>
-            <div>
-              <button data-testid="bookItemIsCompleteButton">Selesai dibaca</button>
-              <button data-testid="bookItemDeleteButton">Hapus Buku</button>
-              <button data-testid="bookItemEditButton">Edit Buku</button>
             </div>
-          </div>
-        </div>
       </section>
     </main>
+
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button" id="closeModal">&times;</span>
+        <h2>Edit Buku</h2>
+        <form id="editBookForm">
+          <div>
+            <label for="editBookTitle">Judul</label>
+            <input id="editBookTitle" type="text" required />
+          </div>
+          <div>
+            <label for="editBookAuthor">Penulis</label>
+            <input id="editBookAuthor" type="text" required />
+          </div>
+          <div>
+            <label for="editBookYear">Tahun</label>
+            <input id="editBookYear" type="number" required />
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <label for="editBookIsComplete" style="margin-bottom: 0;">Selesai dibaca</label>
+            <input id="editBookIsComplete" type="checkbox" />
+          </div>
+          <button type="submit" id="editFormSubmit">Simpan Perubahan</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
   </body>
 </html>
