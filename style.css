@@ -1,0 +1,305 @@
+/* --- RESET DATA DASAR & VARIABEL CSS --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Warna Aksen Ungu Utama */
+  --accent-purple: #9c27b0; /* Ungu cerah (seperti di referensi) */
+  --accent-purple-glow: #e040fb; /* Ungu neon untuk glow */
+  
+  /* Glassmorphism Panel: Latar Belakang Putih Transparan */
+  --glass-bg: rgba(255, 255, 255, 0.1); 
+  --glass-border: rgba(255, 255, 255, 0.2); 
+  --glass-shadow: rgba(0, 0, 0, 0.2);
+  --glass-blur: blur(10px); /* Efek buram 'frosted glass' */
+
+  /* Warna Teks */
+  --text-main: #ffffff; /* Teks putih agar kontras di latar ungu */
+  --text-muted: #e0e0e0; /* Putih sedikit abu-abu untuk deskripsi */
+}
+
+body {
+  font-family: 'Poppins', sans-serif; /* Menggunakan font yang modern */
+  background: linear-gradient(135deg, #1f1f3a 0%, #3a1c58 100%); /* Gradien latar belakang ungu gelap */
+  color: var(--text-main);
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- STYLING HEADER --- */
+header {
+  width: 100%;
+  max-width: 1000px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur); /* Dukungan Safari */
+  padding: 20px;
+  text-align: center;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 15px var(--glass-shadow);
+  margin-bottom: 25px;
+}
+
+header h1 {
+  font-size: 2.2em;
+  color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  /* Tambahkan sedikit efek glow neon pada teks */
+  text-shadow: 0 0 8px var(--accent-purple-glow);
+}
+
+/* --- STYLING MAIN CONTAINER --- */
+main {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* --- STYLE SECTION UTAMA (Form, Search, Rak) --- */
+section {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 15px var(--glass-shadow);
+}
+
+section h2 {
+  font-size: 1.6em;
+  color: var(--accent-purple-glow); /* H2 menggunakan aksen ungu cerah */
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+/* --- STYLING FORM INPUT --- */
+form div {
+  margin-bottom: 15px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: var(--text-muted);
+}
+
+/* Mengubah input field menjadi semi-transparan (glass look) */
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05); /* Transparan */
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--text-main);
+  font-size: 1em;
+  transition: 0.3s;
+}
+
+/* Efek glow saat input di-klik (focus) */
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: var(--accent-purple-glow);
+  box-shadow: 0 0 10px var(--accent-purple-glow);
+}
+
+/* Checkbox container */
+form > div:nth-child(4) {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--accent-purple); /* Mengubah warna checkbox standar menjadi ungu */
+}
+
+/* --- STYLING BUTTONS --- */
+button {
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: bold;
+}
+
+/* Tombol utama (Add, Search) dengan tema ungu neon */
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: var(--accent-purple);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  margin-top: 10px;
+  box-shadow: 0 4px 6px rgba(156, 39, 176, 0.3);
+}
+
+button[type="submit"]:hover {
+  background: var(--accent-purple-glow);
+  box-shadow: 0 0 15px var(--accent-purple-glow); /* Efek glow neon saat di-hover */
+}
+
+/* --- RAK BUKU (Daftar Buku) --- */
+.book_list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+/* --- BOOK ITEM (Kartu Buku) --- */
+/* Menargetkan data-testid="bookItem" untuk kartu buku */
+div[data-testid="bookItem"] {
+  background: rgba(255, 255, 255, 0.03); /* Lebih transparan */
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: 0.3s;
+}
+
+/* Sedikit efek glow saat kartu di-hover mouse */
+div[data-testid="bookItem"]:hover {
+  border-color: rgba(156, 39, 176, 0.5);
+  box-shadow: 0 0 12px rgba(156, 39, 176, 0.3);
+}
+
+/* Menargetkan elemen dalam kartu buku (data-testid wajib) */
+[data-testid="bookItemTitle"] {
+  font-size: 1.3em;
+  margin-bottom: 5px;
+  color: var(--text-main);
+}
+
+[data-testid="bookItemAuthor"],
+[data-testid="bookItemYear"] {
+  font-size: 0.95em;
+  color: var(--text-muted);
+  margin-bottom: 3px;
+}
+
+/* Action buttons dalam kartu buku */
+div[data-testid="bookItem"] > div {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap; /* Tombol akan turun jika layar sempit */
+  gap: 10px;
+}
+
+div[data-testid="bookItem"] button {
+  padding: 8px 15px;
+  border-radius: 6px;
+  font-size: 0.85em;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-main);
+  border: 1px solid var(--glass-border);
+}
+
+/* Warna khusus untuk tombol aksi (Complete, Delete, Edit) */
+div[data-testid="bookItem"] button[data-testid="bookItemIsCompleteButton"]:hover {
+  background: #4caf50; /* Hijau saat di-hover (Selesai/Belum) */
+  border-color: #4caf50;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+}
+
+div[data-testid="bookItem"] button[data-testid="bookItemDeleteButton"]:hover {
+  background: #f44336; /* Merah saat di-hover (Hapus) */
+  border-color: #f44336;
+  box-shadow: 0 0 8px rgba(244, 67, 54, 0.5);
+}
+
+div[data-testid="bookItem"] button[data-testid="bookItemEditButton"]:hover {
+  background: #ff9800; /* Oranye saat di-hover (Edit) */
+  border-color: #ff9800;
+  box-shadow: 0 0 8px rgba(255, 152, 0, 0.5);
+}
+/* --- MODAL POP-UP EDIT --- */
+.modal {
+  display: none; /* Disembunyikan secara default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Latar gelap transparan */
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: linear-gradient(135deg, #2b193d 0%, #4a235a 100%);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 15px var(--glass-shadow);
+  border-radius: 12px;
+  padding: 25px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  color: var(--text-main);
+}
+
+.modal-content h2 {
+  color: var(--accent-purple-glow);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  color: var(--text-muted);
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-button:hover {
+  color: #ff4c4c;
+}
+
+/* --- PESAN KOSONG "Belum ada buku" --- */
+.empty-message {
+  text-align: center;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+/* --- RESPONSIFITAS MOBILE --- */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 1.8em;
+  }
+
+  section {
+    padding: 15px;
+  }
+}
