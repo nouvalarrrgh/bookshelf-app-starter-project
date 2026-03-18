@@ -1,8 +1,3 @@
-/**
- * BOOKSHELF APP (Bintang 5)
- * Memenuhi Kriteria Wajib & Kriteria Opsional (Search + Edit)
- */
-
 const books = [];
 const RENDER_EVENT = 'render-book';
 const SAVED_EVENT = 'saved-book';
